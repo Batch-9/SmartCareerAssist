@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up & Login</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-section.active {
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-section">
+            <img id="illustration" src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-illustration-download-in-svg-png-gif-file-formats--application-concept-based-pack-miscellaneous-illustrations-1598253.png" alt="Illustration">
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section active" id="signup-section">
+            <h1>Sign Up</h1>
+            <form>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <input type="text" placeholder="Mobile Number" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="toggle-link" onclick="toggleForm('login')">Already have an account? Log in</p>
+        </div>
+
+        <div class="form-section" id="login-section">
+            <h1>Login</h1>
+            <form>
+                <input type="email" placeholder="Enter Email" required>
+                <input type="password" placeholder="Enter Password" required>
+                <button type="submit">Log in</button>
+            </form>
+            <p class="toggle-link" onclick="toggleForm('signup')">Don't have an account? Sign up</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(form) {
+            const signupSection = document.getElementById('signup-section');
+            const loginSection = document.getElementById('login-section');
+            const illustration = document.getElementById('illustration');
+
+            if (form === 'signup') {
+                signupSection.classList.add('active');
+                loginSection.classList.remove('active');
+                illustration.src = "https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-illustration-download-in-svg-png-gif-file-formats--application-concept-based-pack-miscellaneous-illustrations-1598253.png";
+            } else {
+                signupSection.classList.remove('active');
+                loginSection.classList.add('active');
+                illustration.src = "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg";
+            }
+        }
+    </script>
+</body>
+</html>
